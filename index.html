@@ -10,7 +10,8 @@
     <video id="video" width="320" height="240" autoplay></video>
     <button id="click-photo">Click Photo</button>
     <canvas id="canvas" width="320" height="240"></canvas>
-    <div class="test"></div>
+    <h3>v1</h3>
+    <div class="test">...</div>
 </body>
 </html>
 <script>
@@ -21,7 +22,7 @@ let canvas = document.querySelector("#canvas");
 //let constraint =
 camera_button.addEventListener('click', async function() {
    	let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
-    document.querySelector(".test").innerHTML = `id : ${stream.id} <br> active : ${stream.active}`;
+    document.querySelector(".test").innerHTML += `id : ${stream.id} <br> active : ${stream.active}`;
 	video.srcObject = stream;
 });
 
