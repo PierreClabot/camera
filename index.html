@@ -17,9 +17,9 @@
 let video = document.querySelector("#video");
 let click_button = document.querySelector("#click-photo");
 let canvas = document.querySelector("#canvas");
-let constraint = { audio: true, video: { facingMode: { exact: "environment" } } }
+//let constraint =
 camera_button.addEventListener('click', async function() {
-   	let stream = await navigator.mediaDevices.getUserMedia(constraint);
+   	let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
 	video.srcObject = stream;
 });
 
