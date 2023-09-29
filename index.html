@@ -6,49 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="file" accept="image/*">
-    <button id="start-camera">Start Camera</button>
-    <video id="video" width="320" height="240" autoplay></video>
-    <button id="click-photo">Click Photo</button>
-    <canvas id="canvas" width="320" height="240"></canvas>
-    <h3>v1.4</h3>
-    <div class="test">...</div>
-
+    <input type="file" onchange="pcdNavJSPhoto(event)" />
+    <div id="result"></div>
 </body>
 </html>
 <script>
-    function debug(chaine){
-        document.querySelector(".test").innerHTML = chaine;
+    function pcdNavJSPhoto(event){
+        document.querySelector("#result").innerHTML += event.target.value;
     }
-    debug("Etape 1");
-    let camera_button = document.querySelector("#start-camera");
-    debug("Etape 2");
-let video = document.querySelector("#video");
-debug("Etape 3");
-let click_button = document.querySelector("#click-photo");
-debug("Etape 4");
-let canvas = document.querySelector("#canvas");
-debug("Etape 5");
-//let constraint =
-camera_button.addEventListener('click', async function() {
-    debug("camera start");
-   	let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true }).catch(err=>{
-        debug(err)
-    });
-    console.log("****",navigator.mediaDevices);
-    debug("camera strat 2");
-    document.querySelector(".test").innerHTML += `id : ${stream.id} <br> active : ${stream.active}`;
-	video.srcObject = stream;
-    video.play();
-});
-debug("Etape 6");
-click_button.addEventListener('click', function() {
-    debug("clic photo");
-   	canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
-   	let image_data_url = canvas.toDataURL('image/jpeg');
 
-   	// data url of the image
-   	console.log(image_data_url);
-});
-debug("Etape 7");
 </script>
