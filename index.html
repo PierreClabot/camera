@@ -31,7 +31,8 @@ debug("Etape 5");
 //let constraint =
 camera_button.addEventListener('click', async function() {
     debug("camera start");
-   	let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+   	let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+    console.log("****",navigator.mediaDevices);
     document.querySelector(".test").innerHTML += `id : ${stream.id} <br> active : ${stream.active}`;
 	video.srcObject = stream;
 });
